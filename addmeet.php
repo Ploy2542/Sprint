@@ -34,7 +34,9 @@
 				<th>ห้องประชุม</th>
                 <th>วันเวลาเริ่มประชุม</th>
 				<th>วันเวลาสิ้นสุดการประชุม</th>
-				<th>เอกสาร</th>
+				<th>อุปกรณ์เพิ่มเติม</th>
+				<th>หมายเหตุ</th>
+				<th>ไฟล์วาระการประชุม</th>
 				<th>จัดการ</th>
 			</thead>
 			<tbody>
@@ -52,13 +54,15 @@
                         <td><?php echo $row['roomid']; ?></td>
                         <td><?php echo $row['start']; ?></td>
 						<td><?php echo $row['end']; ?></td>
+						<td><?php echo $row['addequipment']; ?></td>
+                        <td><?php echo $row['remark']; ?></td>
 						<td><a href="<?php echo $row['meetfile']; ?>">ดูไฟล์</a></td>
 						<td>
 							<a href="#edit<?php echo $row['meetid']; ?>" data-toggle="modal" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a> || 
 							<a href="#del<?php echo $row['meetid']; ?>" data-toggle="modal" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
 							<?php include('meetaction.php'); ?>
 						</td>
-					</tr>
+					</tr>	
 					<?php
 				}
 			

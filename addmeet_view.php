@@ -17,7 +17,7 @@
 				<form method="POST" action="addmeet_model.php" enctype="multipart/form-data">
 					<div class="row">
 						<div class="col-lg-2">
-							<label class="control-label" style="position:relative; top:7px;">วาระประชุม:</label>
+							<label class="control-label" style="position:relative; top:7px;">วาระประชุม :</label>
 						</div>
 						<div class="col-lg-10">
 							<input type="text" class="form-control" name="title">
@@ -27,10 +27,10 @@
 					<div style="height:10px;"></div>
 					<div class="row">
 						<div class="col-lg-2">
-							<label class="control-label" style="position:relative; top:7px;">ประธานการประชุม:</label>
+							<label class="control-label" style="position:relative; top:7px;">ประธานการประชุม :</label>
 						</div>
 						<div class="col-lg-10">
-  							<select class="form-control" id="head">
+  							<select class="form-control" id="head" name="head">
    							<option>นายกเทศมนตรี </option>
     						<option>รองนายกเทศมนตรี1</option>
   							<option>รองนายกเทศมนตรี2</option>
@@ -41,7 +41,7 @@
 					<div style="height:10px;"></div>
 					<div class="row">
 						<div class="col-lg-2">
-							<label class="control-label" style="position:relative; top:7px;">จำนวนผู้เข้าประชุม:</label>
+							<label class="control-label" style="position:relative; top:7px;">จำนวนผู้เข้าประชุม :</label>
 						</div>
 						<div class="col-lg-10">
 							<input type="text" class="form-control" name="numattend">
@@ -49,7 +49,7 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-2">
-							<label class="control-label" style="position:relative; top:7px;">ผู้เข้าร่วมประชุม:</label>
+							<label class="control-label" style="position:relative; top:7px;">ผู้เข้าร่วมประชุม :</label>
 						</div>
 						<div class="col-lg-10">
 							<input type="text" class="form-control" name="listname">
@@ -58,10 +58,10 @@
 					<div style="height:10px;"></div>
 					<div class="row">
 						<div class="col-lg-2">
-							<label class="control-label" style="position:relative; top:7px;">ห้องประชุม:</label>
+							<label class="control-label" style="position:relative; top:7px;">ห้องประชุม :</label>
 						</div>
 						<div class="col-lg-10">
-  							<select class="form-control" id="roomid">
+  							<select class="form-control" id="roomid" name="roomid">
 							<?php
 							include('conn.php');
 							$query=mysqli_query($conn,"select * from room");
@@ -75,13 +75,13 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-2">
-							<label class="control-label" style="position:relative; top:7px;">เริ่มเวลา:</label>
+							<label class="control-label" style="position:relative; top:7px;">เริ่มเวลา :</label>
 						</div>
 						<div class="col-lg-10">
 							<input type="datetime-local" class="form-control" name="start">
 						</div>
 						<div class="col-lg-2">
-							<label class="control-label" style="position:relative; top:7px;">สิ้นสุดเวลา:</label>
+							<label class="control-label" style="position:relative; top:7px;">สิ้นสุดเวลา :</label>
 						</div>
 						<div class="col-lg-10">
 							<input type="datetime-local" class="form-control" name="end">
@@ -90,16 +90,15 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-2">
-							<label class="control-label" style="position:relative; top:7px;">อุปกรณ์เพิ่มเติม:</label>
+							<label class="control-label" style="position:relative; top:7px;">อุปกรณ์เพิ่มเติม :</label>
 						</div>
 						<div class="col-lg-10">
 							<input type="text" class="form-control" name="addequipment">
 						</div>
-					</div>	
-						
+					</div>		
 					<div class="row">
 						<div class="col-lg-2">
-							<label class="control-label" style="position:relative; top:7px;">หมายเหตุ:</label>
+							<label class="control-label" style="position:relative; top:7px;">หมายเหตุ :</label>
 						</div>
 						<div class="col-lg-10">
 							<input type="text" class="form-control" name="remark">
@@ -107,7 +106,7 @@
 					</div>		
 					<div class="row">
 						<div class="col-lg-2">
-							<label class="control-label" style="position:relative; top:7px;">แนบไฟล์วาระการประชุม:</label>
+							<label class="control-label" style="position:relative; top:7px;">แนบไฟล์วาระการประชุม :</label>
 						</div>
 						<div class="col-lg-10">
 							<input type="file" class="form-control" name="meetfile">
@@ -115,7 +114,7 @@
 					</div>		
 					<div class="row">
 						<div class="col-lg-2">
-						<label class="control-label" style="position:relative; top:7px;">ผู้จองประชุม:</label>
+						<label class="control-label" style="position:relative; top:7px;">ผู้จองประชุม :</label>
 						</div>
 						<div class="col-lg-10">
 						<?php 
