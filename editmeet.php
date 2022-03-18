@@ -1,13 +1,20 @@
 <?php
 	include('conn.php');
 	
-	$roomid=$_GET['roomid'];
+	$id=$_GET['id'];
+	$title=$_POST['title'];
+	$head=$_POST['head'];
+	$numattend=$_POST['numattend'];
+	$roomid=$_POST['roomid'];
+	$start=$_POST['start'];
+	$end=$_POST['end'];
+	$addequipment=$_POST['addequipment'];
+	$remark=$_POST['remark'];
+	$meetfile=$_POST['meetfile'];
 	
-	$roomname=$_POST['roomname'];
-	$location=$_POST['location'];
-
-	
-	mysqli_query($conn,"update room set roomname='$roomname', location='$location' where roomid='$roomid'");
-	header('location:addroom.php');
+	mysqli_query($conn,"update events set title='$title', head='$head', numattend='$numattend', 
+				roomid='$roomid', start='$start',end='$end',addequipment='$addequipment',remark='$remark',
+				meetfile='$meetfile' where id='$id'");
+	header('location:addmeet.php');
 
 ?>

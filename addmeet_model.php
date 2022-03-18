@@ -23,7 +23,7 @@
 	$meetfilelocation=$fileDes;
 
 	
-	mysqli_query($conn,"insert into meeting (title, head, numattend, listname, start, end, addequipment, remark, meetfile) 
+	mysqli_query($conn,"insert into events (title, head, numattend, listname, start, end, addequipment, remark, meetfile) 
 									values ('$title', '$head','$numattend', '$listname','$start', '$end','$addequipment', '$remark', '$meetfilelocation
 									')");
 	header('location:addmeet.php');

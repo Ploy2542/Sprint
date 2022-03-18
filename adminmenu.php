@@ -26,8 +26,9 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          จองห้องประชุม
         </a>
+        
 		  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">ค้นหาห้องประชุม</a>
+          <a class="dropdown-item" href="calendar.php ">ค้นหาห้องประชุม</a>
           <a class="dropdown-item" href="addmeet.php">จองห้องประชุม</a>
 		  <a class="dropdown-item" href="#">แก้ไขห้องประชุม</a>
         </div>

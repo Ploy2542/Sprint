@@ -43,11 +43,11 @@
 			<?php
 				include('conn.php');
 				
-				$query=mysqli_query($conn,"select * from meeting");
+				$query=mysqli_query($conn,"select * from events");
 				while($row=mysqli_fetch_array($query)){
 					?>
 					<tr>
-						<td><?php echo $row['meetid']; ?></td>
+						<td><?php echo $row['id']; ?></td>
 						<td><?php echo $row['title']; ?></td>
 						<td><?php echo $row['head']; ?></td>
                         <td><?php echo $row['numattend']; ?></td>
@@ -58,8 +58,8 @@
                         <td><?php echo $row['remark']; ?></td>
 						<td><a href="<?php echo $row['meetfile']; ?>">ดูไฟล์</a></td>
 						<td>
-							<a href="#edit<?php echo $row['meetid']; ?>" data-toggle="modal" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a> || 
-							<a href="#del<?php echo $row['meetid']; ?>" data-toggle="modal" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+							<a href="#edit<?php echo $row['id']; ?>" data-toggle="modal" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a> || 
+							<a href="#del<?php echo $row['id']; ?>" data-toggle="modal" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
 							<?php include('meetaction.php'); ?>
 						</td>
 					</tr>	
