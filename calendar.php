@@ -22,7 +22,7 @@
     <!-- Custom CSS -->
     <style>
     body {
-        /*padding-top: 70px;
+       /* padding-top: 70px;
         /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     }
 	#calendar {
@@ -40,23 +40,85 @@
 require_once('bdd.php');
 
 
-$sql = "SELECT * FROM events";
+if (isset($_POST['searchhead']) && isset($_POST['searchroom']))
+{
+	$searchhead = $_POST['searchhead'];
+	$searchroom = $_POST['searchroom'];
+	$sql = "SELECT * FROM events where head = '$searchhead' && roomid = '$searchroom'";
+}
+else if (isset($_POST['searchhead']) && empty($_POST['searchroom']))
+{
+	$searchhead = $_POST['searchhead'];
+	$sql = "SELECT * FROM events where head = '$searchhead';";
+}
+else if (isset($_POST['searchroom']) && empty($_POST['searchhead']))
+{
+	$searchroom = $_POST['searchroom'];
+	$sql = "SELECT * FROM events where roomid = '$searchroom';";
+}
+else
+{
+	$sql = "SELECT * FROM events";
+}
 
 $req = $bdd->prepare($sql);
 $req->execute();
 
 $events = $req->fetchAll();
 
+
 ?>
 
+ 
+	</table>
+	<center><table style="width:70%">
+  	<tr>
+    <th>
+	<form method="POST" action="calendar.php">	
+	<span style="font-size:20px; color:black;"><center><strong>เลือกผู้บริหาร </strong></center></span>
+  	<select name="searchhead" class="form-control" id="searchhead">
+  	<option value=""> ประธานทั้งหมด</option>
+  	<option value="นายกเทศมนตรี"> นายกเทศมนตรี</option>
+	<option value="รองนายกเทศมนตรี1"> รองนายกเทศมนตรี1</option>
+	<option value="รองนายกเทศมนตรี2"> รองนายกเทศมนตรี2</option>
+	<option value="รองนายกเทศมนตรี3"> รองนายกเทศมนตรี3</option>
+  	</select> </th>
+	 <th> 
+	<span style="font-size:20px; color:black;"><center><strong>เลือกห้อง </strong></center></span>
+  	<select name="searchroom" class="form-control" id="searchroom">
+  	<option value=" "> ห้องทั้งหมด</option>
+	  <?PHP 
+   $sql1 = "SELECT * FROM room";
+   $req = $bdd->prepare($sql1);
+   $req->execute();
+   $room = $req->fetchAll();
+				  
+   foreach ($room as $row => $room) 
+   {
+   echo  '<option value='.$room['roomid'].'>' . $room['roomname']. '</option>';
+   }
+  ?>
+  	</select> </th>
+	<th><span style="font-size:20px; color:white;"><center><strong>คลิ๊ก </strong></center></span>  <button type="submit" class="btn btn-primary">ค้นหา</button> </th>
 
-    <!-- Page Content -->
+ 	</tr>
+    </table></center>
+
+
+
+    <!-- Page Content -->	
     <div class="container">
 
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h1>ตารางปฎิทิน</h1>
-                <p class="lead">***</p>
+                <h1>ตารางการใช้งานห้องประชุม</h1>
+                <p class="lead">
+					<?php 
+					if (isset($_POST['searchhead']) || isset($_POST['searchroom']))		
+					echo "ประธานชื่อ ". $_POST['searchhead'] ."  ห้องประชุม  ". $_POST['searchroom'] ; 
+					?>
+				
+				</p>
                 <div id="calendar" class="col-centered">
             </div>
         </div>
